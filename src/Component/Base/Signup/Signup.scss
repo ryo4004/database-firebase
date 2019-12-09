@@ -1,0 +1,26 @@
+.signup {
+
+  & > div {
+    padding: 48px 0;
+
+    .agreement {
+      label {
+        font-size: .9rem;
+      }
+    }
+  }
+
+  .login-account {
+    margin: 16px 0;
+    font-size: .9rem;
+
+    a {
+      color: #0070c9;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

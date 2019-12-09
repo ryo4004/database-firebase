@@ -1,0 +1,13 @@
+export enum SignupActionType {
+  LOADING = 'SIGNUP/LOADING',
+  CHANGE_EMAIL = 'SIGNUP/CHANGE_EMAIL',
+  CHANGE_PASSWORD = 'SIGNUP/CHANGE_PASSWORD',
+  CHANGE_AGREEMENT = 'SIGNUP/CHANGE_AGREEMENT',
+  REQUEST_SIGNUP = 'SIGNUP/REQUEST_SIGNUP',
+  SET_ERROR = 'SIGNUP/SET_ERROR'
+}
+
+export interface SignupAction {
+  type: SignupActionType
+  payload?: any
+}
