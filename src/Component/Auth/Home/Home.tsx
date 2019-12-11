@@ -6,6 +6,8 @@ import store from '../../../Store/Store'
 import { StateProps, DispatchProps, HomeProps } from '../../../Interfaces/Auth/Home/Home'
 import { requestLogout } from '../../../Actions/Actions/Session'
 
+import { firestore } from '../../../Library/Firebase/Firestore'
+
 import './Home.scss'
 
 const mapStateToProps = (state: ReturnType<typeof store.getState>): StateProps => ({
@@ -36,12 +38,33 @@ const Login: FC<HomeProps> = ({
     )
   }
 
+  const loadCollection = () => {
+    firestore.collection("users").get().then((querySnapshot: any) => {
+      console.log(querySnapshot)
+      querySnapshot.forEach((doc: any) => {
+        console.log(doc.id, doc.data())
+      })
+    })
+  }
+
+  const addCollection = () => {
+    firestore.collection('users').add({
+      data: 'sampledata'
+    }).then((docRef: any) => {
+      console.log('Document written with ID: ', docRef.id, {docRef})
+    }).catch((error: any) => {
+      console.log('Error adding document: ', error)
+    })
+  }
+
   return (
     <div className='home'>
       <div>
         <h2>ホーム</h2>
         <button onClick={() => requestLogout()}>ログアウト</button>
         {showUserinfo()}
+        <button onClick={() => loadCollection()}>読み込み</button>
+        <button onClick={() => addCollection()}>追加</button>
       </div>
     </div>
   )
