@@ -8,7 +8,7 @@ const initialState: SessionState = {
   error: {code: '', message: ''}
 }
 
-const loginReducer: Reducer<SessionState, SessionAction> = (
+const sessionReducer: Reducer<SessionState, SessionAction> = (
   state: SessionState = initialState,
   action: SessionAction
 ): SessionState => {
@@ -33,4 +33,4 @@ const loginReducer: Reducer<SessionState, SessionAction> = (
   }
 }
 
-export default loginReducer
+export default sessionReducer
